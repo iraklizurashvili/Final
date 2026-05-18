@@ -1,52 +1,73 @@
 <!DOCTYPE html>
-<html lang="ka">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>პროექტის სახელი</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>netlog — networking & security notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <header>
-    <nav>
-      <span class="nav__logo">პროექტის სახელი</span>
-      <div class="nav__links">
-        <a href="index.html">ძიება</a>
-        <a href="saved.html">შენახული</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="dot">.</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active" aria-current="page">home</a>
+        <a href="saved.html">
+          saved
+          <span class="saved-badge" aria-label="saved posts count">0</span>
+        </a>
+        <a href="login.html">about</a>
       </div>
-      <div class="nav__actions">
-        <span id="nav-user"></span>
-        <button id="logout-btn" type="button">გასვლა</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-label">actively studying · CCNA in progress</div>
+      <h1>Networking &amp; security notes</h1>
+      <p>Personal study vault — CCNA prep, security concepts, and everything in between. Updated as I learn.</p>
+
+      <div class="hero-controls">
+        <div class="search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search notes… (press /)"
+            aria-label="Search posts"
+          />
+        </div>
+
+        <div class="filter-tags" role="group" aria-label="Filter by category">
+          <button class="tag-btn active" data-tag="All">All</button>
+          <button class="tag-btn" data-tag="CCNA">CCNA</button>
+          <button class="tag-btn" data-tag="Security">Security</button>
+          <button class="tag-btn" data-tag="Protocols">Protocols</button>
+          <button class="tag-btn" data-tag="Lab">Labs</button>
+        </div>
       </div>
-    </nav>
+    </div>
   </header>
-
-  <main>
-
-    <!-- საძიებო / ფილტრის ფორმა -->
-    <section>
-      <form id="search-form">
-        <!-- დაამატე input ველები აქ (სულ მცირე 3 განსხვავებული ტიპი) -->
-        <button type="submit">ძიება</button>
-      </form>
-    </section>
-
-    <!-- ჩატვირთვის და შეცდომის მდგომარეობები -->
-    <p id="loading-msg" hidden>იტვირთება…</p>
-    <p id="error-msg" hidden></p>
-
-    <!-- დინამიურად შექმნილი ბარათები აქ განთავსდება -->
-    <section>
-      <div id="results-grid"></div>
-    </section>
-
+  <main class="posts-section">
+    <div class="container">
+      <div class="section-meta">
+        <span id="post-count"></span>
+        <span>press / to search</span>
+      </div>
+      <div class="posts-grid" id="posts-grid" aria-live="polite">
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <!-- footer-ის შიგთავსი -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>net.log — irakli's study notes</span>
+    </div>
   </footer>
-
-  <script type="module" src="js/main.js"></script>
 </body>
 </html>
